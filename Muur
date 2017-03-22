@@ -1,0 +1,27 @@
+package project;
+
+
+/**
+ *
+ * @author Jeroen
+ */
+public class Muur extends Vak {
+     public Muur(Veld veld) {
+        super(veld);
+    }
+
+     
+   @Override
+    public void open() {
+        if (!this.getVeld().getGameOver()) {
+            this.setText("X");
+            Veld veld = this.getVeld();
+            veld.gameOver();
+        }
+    }
+    
+    public String toString() {
+        return "*";
+    }
+    
+}
