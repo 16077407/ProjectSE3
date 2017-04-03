@@ -1,27 +1,14 @@
-package project;
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package game;
 
 /**
  *
- * @author Jeroen
+ * @author bert-
  */
-public class Muur extends Vak {
-     public Muur(Veld veld) {
-        super(veld);
-    }
-
-     
-   @Override
-    public void open() {
-        if (!this.getVeld().getGameOver()) {
-            this.setText("X");
-            Veld veld = this.getVeld();
-            veld.gameOver();
-        }
-    }
-    
-    public String toString() {
-        return "*";
-    }
+public class Muur extends Spelelement{
     
 }
