@@ -26,6 +26,8 @@ public class Veld extends JFrame
     public int px;
     public int ny;
     public int nx;
+    public int positiespelelement;
+    public int positiespelelement1;
     static JButton resetbutton;
     
 
@@ -46,6 +48,7 @@ public class Veld extends JFrame
             vak[rij][i].setSize(SIZE, SIZE);
             vak[rij][i].setLocation(SIZE * i, SIZE * rij);
             vak[0][0].setBackground(Color.GREEN);
+            
             vak[aantalRijen -1][aantalRijen-1].setBackground(Color.RED);
         }
     }
@@ -147,18 +150,19 @@ public class Veld extends JFrame
         @Override
         public void actionPerformed(ActionEvent e) {
                    System.out.println("hallo");
-
         }
         
        }
 
     public static void main(String[] args) {
+        Spelelement getal = new Spelelement(1,1);
+        System.out.println(getal.getGetal());
+        System.out.println(getal.getGetal());
         Veld veld = new Veld(10);
         veld.setVisible(true);
 
     }
 
     }
-
 
 
