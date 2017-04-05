@@ -10,6 +10,25 @@ package game;
  * @author bert-
  */
 public class Spelelement {
+    
+    private int getal;
+    private int getal1;
+    
+    public Spelelement(int getal, int getal1 ){
+        this.getal = getal;
+        this.getal1 = getal1;
+    
+}
+    
+    public int getGetal(){
+        return getal;
+    }
+    
+     public int getGetal1(){
+        return getal1;
+    }
+     
+     
     public static void main(String[] args) {
         Sleutel sleutel1 = new Sleutel(100);
         Sleutel sleutel2 = new Sleutel(200);
