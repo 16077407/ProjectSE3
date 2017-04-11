@@ -5,14 +5,26 @@
  */
 package game;
 
+import java.awt.Color;
+
 /**
  *
  * @author bert-
  */
-public class Sleutel extends Spelelement {
+public class Sleutel extends Vak {
     private int sleutelwaarde;
+
+    public int getSleutelwaarde() {
+        return sleutelwaarde;
+    }
     
     public Sleutel(int sleutelwaarde) {
         this.sleutelwaarde = sleutelwaarde;
+        this.setText(sleutelwaarde+"");
+        this.setBackground(Color.green);
+    }
+    
+    public  void toon(){
+        this.setBackground(Color.green);
     }
 }
