@@ -5,10 +5,22 @@
  */
 package game;
 
+import java.awt.Color;
+
 /**
  *
  * @author bert-
  */
-public class Muur extends Spelelement{
+public class Muur extends Vak {
+    private boolean toegang = false;
     
+    public Muur() {
+        this.setBackground(Color.blue);
+        this.toegang = false;
+    }
+
+    public void toon() {
+        this.setBackground(Color.blue);
+    }
+
 }
