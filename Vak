@@ -1,20 +1,16 @@
 package game;
 
+import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
-public class Vak extends JButton //  implements KeyListener 
+public abstract class Vak extends JButton //  implements KeyListener 
 {
 
-    private Veld veld;
-
     // veld registereren
-    public Vak(Veld veld) {
-        this.veld = veld;
-    }
-
-    protected Veld getVeld() {
-        return veld;
-    }
+    public Vak() {
+    }    
     
-
+    public abstract void toon();
+    
 }
