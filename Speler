@@ -5,10 +5,180 @@
  */
 package game;
 
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 /**
  *
- * @author bert-
+ * @author reini
  */
-public class Speler {
-    
+public class Speler extends JFrame {
+    private int aantalRijen;
+    protected Vak[][] vak;
+    private JPanel panel;
+    private final int SIZE = 60;
+    public int py;
+    public int px;
+    public int ny;
+    public int nx;
+
+    public Speler(int aantalRijen) {
+        this.setBackground(Color.BLACK);
+        this.aantalRijen = aantalRijen;
+    }
+// misschien veld extenden?
+
+    public void toon() {
+        this.setBackground(Color.black);
+    }
+
+    public void keyPressed(KeyEvent e) {
+        if (py < aantalRijen - 1) {
+            //    System.out.println("ny:" + ny);
+            if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                if (vak[py][px] instanceof Barricade) {
+                    vak[py][px] = new Leeg();
+                } else if (vak[py + 1][px] instanceof Barricade) {
+                    System.out.println("barricade");
+                } else if (vak[py + 1][px] instanceof Sleutel) {
+
+                    vak[py][px] = new Leeg();
+//                    sleutelwaarde = 100;
+//                    System.out.println(sleutelwaarde);
+                    vak[ny = py + 1][px].setBackground(Color.black);
+                    vak[py][px].setBackground(Color.white);
+                    py = ny;
+                    px = nx;
+                    System.out.println(vak[ny][nx]);
+
+                    // sleutelwaarde moet gegeven worden
+                } else if (vak[py + 1][px] instanceof Muur) {
+                    System.out.println("muur");
+                } else {
+                    vak[ny = py + 1][px].setBackground(Color.black);
+                    vak[py][px].setBackground(Color.white);
+                    py = ny;
+                    px = nx;
+                    System.out.println(vak[ny][nx]);
+                }
+
+            }
+        }
+        if (py > 0) {
+            if (e.getKeyCode() == KeyEvent.VK_UP) {
+                if (vak[py][px] instanceof Barricade) {
+                    vak[py][px] = new Leeg();
+                } else if (vak[py - 1][px] instanceof Barricade) {
+                    System.out.println("barricade");
+                } else if (vak[py - 1][px] instanceof Sleutel) {
+
+                    vak[py - 1][px] = new Leeg();
+//                    sleutelwaarde = 100;
+//                    System.out.println(sleutelwaarde);
+                    vak[ny = py - 1][px].setBackground(Color.black);
+                    vak[py][px].setBackground(Color.white);
+                    py = ny;
+                    px = nx;
+                    System.out.println(vak[ny][nx]);
+
+                    // sleutelwaarde moet gegeven worden
+                } else if (vak[py - 1][px] instanceof Muur) {
+                    System.out.println("muur");
+                } else {
+                    vak[ny = py - 1][px].setBackground(Color.black);
+                    vak[py][px].setBackground(Color.white);
+                    py = ny;
+                    px = nx;
+                    System.out.println(vak[ny][nx]);
+                }
+//                if (vak[py - 1][px] instanceof Muur) {
+//                    System.out.println("muur");
+//                } else {
+//                    vak[ny = py - 1][px].setBackground(Color.black);
+//                    vak[py][px].setBackground(Color.white);
+//                    py = ny;
+//                    px = nx;
+//                }
+            }
+        }
+        if (px > 0) {
+            if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                if (vak[py][px - 1] instanceof Barricade) {
+                    vak[py][px] = new Leeg();
+
+                } else if (vak[py][px - 1] instanceof Barricade) {
+                    System.out.println("barricade");
+                } else if (vak[py][px - 1] instanceof Sleutel) {
+
+                    vak[py][px - 1] = new Leeg();
+//                    sleutelwaarde = 100;
+//                    System.out.println(sleutelwaarde);
+                    vak[py][nx = px - 1].setBackground(Color.black);
+                    vak[py][px].setBackground(Color.white);
+                    py = ny;
+                    px = nx;
+                    System.out.println(vak[ny][nx]);
+
+                    // sleutelwaarde moet gegeven worden
+                } else if (vak[py][px - 1] instanceof Muur) {
+                    System.out.println("muur");
+                } else {
+                    vak[py][nx = px - 1].setBackground(Color.black);
+                    vak[py][px].setBackground(Color.white);
+                    py = ny;
+                    px = nx;
+                    System.out.println(vak[ny][nx]);
+                }
+//                if (vak[py][px - 1] instanceof Muur) {
+//                    System.out.println("muur");
+//                } else {
+//                    vak[py][nx = px - 1].setBackground(Color.black);
+//                    vak[py][px].setBackground(Color.white);
+//                    py = ny;
+//                    px = nx;
+//                }
+            }
+        }
+        if (px <= aantalRijen - 2) {
+            if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                if (vak[py][px + 1] instanceof Barricade) {
+                    vak[py][px] = new Leeg();
+
+                } else if (vak[py][px + 1] instanceof Barricade) {
+                    System.out.println("barricade");
+                } else if (vak[py][px + 1] instanceof Sleutel) {
+
+                    vak[py][px + 1] = new Leeg();
+//                    sleutelwaarde = 100;
+//                    System.out.println(sleutelwaarde);
+                    vak[py][nx = px + 1].setBackground(Color.black);
+                    vak[py][px].setBackground(Color.white);
+                    py = ny;
+                    px = nx;
+                    System.out.println(vak[ny][nx]);
+
+                    // sleutelwaarde moet gegeven worden
+                } else if (vak[py][px + 1] instanceof Muur) {
+                    System.out.println("muur");
+                } else {
+                    vak[py][nx = px + 1].setBackground(Color.black);
+                    vak[py][px].setBackground(Color.white);
+                    py = ny;
+                    px = nx;
+                    System.out.println(vak[ny][nx]);
+                }
+//                if (vak[py][px + 1] instanceof Muur) {
+//                    System.out.println("muur");
+//                } else {
+//                    vak[py][px].setBackground(Color.white);
+//                    vak[py][nx = px + 1].setBackground(Color.black);
+//                    py = ny;
+//                    px = nx;
+//                }
+            }
+        }
+    }
 }
